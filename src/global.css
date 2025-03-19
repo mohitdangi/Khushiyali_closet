@@ -1,0 +1,16 @@
+/* global.css */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* Ensures padding doesn't increase element size */
+  }
+  
+  body {
+    margin: 0;
+    padding: 0;
+    width: 100vw; 
+    height: 100vh;
+    overflow-x: hidden; /* Prevents horizontal scroll issues */
+    font-family: 'Roboto', sans-serif; /* Consistent typography */
+  }
+  

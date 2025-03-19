@@ -1,0 +1,10 @@
+.slick-slide {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .slick-dots li button:before {
+    color: #1976d2; /* Material-UI Blue */
+  }
+  
