@@ -13,7 +13,7 @@ import {
   ListItemText,
   Divider
 } from '@mui/material';
-import MenuIcon from '@mui/icons-material/Menu'; // ✅ For Hamburger Icon
+import MenuIcon from '@mui/icons-material/Menu';
 import { Link } from 'react-router-dom';
 
 const Navbar = () => {
@@ -22,7 +22,7 @@ const Navbar = () => {
   const handleDrawerToggle = () => setMobileOpen(!mobileOpen);
 
   return (
-    <AppBar position="static" sx={{ backgroundColor: '#1976d2' }}>
+    <AppBar position="static" sx={{ backgroundColor: 'primary.main' }}>
       <Toolbar sx={{ display: 'flex', alignItems: 'center' }}>
 
         {/* Logo / Home */}
@@ -30,7 +30,7 @@ const Navbar = () => {
           variant="h6"
           component={Link}
           to="/"
-          sx={{ textDecoration: 'none', color: 'inherit', flexGrow: 1 }}
+          sx={{ textDecoration: 'none', color: 'background.paper', flexGrow: 1 }}
         >
           Girl Clothing Store
         </Typography>
@@ -48,21 +48,21 @@ const Navbar = () => {
           </Button>
         </Box>
 
-        {/* Search Bar (Responsive) */}
+        {/* Search Bar */}
         <Box sx={{ display: { xs: 'none', sm: 'block' }, ml: 2 }}>
           <TextField
             variant="outlined"
             placeholder="Search..."
             size="small"
             sx={{
-              backgroundColor: '#fff',
+              backgroundColor: 'background.paper',
               borderRadius: '4px',
               width: { xs: '150px', sm: '200px', md: '250px' }
             }}
           />
         </Box>
 
-        {/* Hamburger Icon (For Mobile) */}
+        {/* Hamburger Icon */}
         <IconButton
           color="inherit"
           edge="end"
@@ -73,7 +73,7 @@ const Navbar = () => {
         </IconButton>
       </Toolbar>
 
-      {/* Drawer for Mobile Navigation */}
+      {/* Drawer */}
       <Drawer
         anchor="right"
         open={mobileOpen}

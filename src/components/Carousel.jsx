@@ -2,14 +2,15 @@ import React from 'react';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
-import { Box, Typography } from '@mui/material';
-import './Carousel.css';
+import { Box, Typography, useTheme } from '@mui/material';
 
 const Carousel = () => {
+  const theme = useTheme(); // Access theme variables
+
   const settings = {
     dots: true,
     infinite: true,
-    speed: 500,
+    speed: 600,
     slidesToShow: 3,
     slidesToScroll: 1,
     autoplay: true,
@@ -41,7 +42,16 @@ const Carousel = () => {
     <Box sx={{ maxWidth: '100%', overflow: 'hidden', my: 4 }}>
       <Slider {...settings}>
         {carouselItems.map((item) => (
-          <Box key={item.id} sx={{ textAlign: 'center', p: 2 }}>
+          <Box
+            key={item.id}
+            sx={{
+              textAlign: 'center',
+              p: 2,
+              backgroundColor: theme.palette.background.default,
+              borderRadius: '12px',
+              boxShadow: '0 4px 10px rgba(0, 0, 0, 0.1)',
+            }}
+          >
             <img
               src={item.img}
               alt={item.title}
@@ -52,7 +62,14 @@ const Carousel = () => {
                 objectFit: 'cover',
               }}
             />
-            <Typography variant="h6" sx={{ mt: 1 }}>
+            <Typography
+              variant="h6"
+              sx={{
+                mt: 1,
+                color: 'primary.main',
+                fontWeight: 'bold',
+              }}
+            >
               {item.title}
             </Typography>
           </Box>

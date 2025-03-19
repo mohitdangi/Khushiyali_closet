@@ -1,13 +1,21 @@
-import React from 'react';
-import './global.css';
-import ReactDOM from 'react-dom/client';
-import { BrowserRouter } from 'react-router-dom'; 
-import App from './App';
-const root = ReactDOM.createRoot(document.getElementById('root'));
+import React from "react";
+import ReactDOM from "react-dom/client";
+import { ThemeProvider, CssBaseline } from "@mui/material";
+import { BrowserRouter as Router } from "react-router-dom";
+
+import App from "./App";
+import theme from "./theme";
+import "./global.css"; // Ensures global styling is applied
+
+const root = ReactDOM.createRoot(document.getElementById("root"));
+
 root.render(
   <React.StrictMode>
-   <BrowserRouter> <App />
-   </BrowserRouter>
+    <ThemeProvider theme={theme}>
+      <CssBaseline />
+      <Router>
+        <App />
+      </Router>
+    </ThemeProvider>
   </React.StrictMode>
 );
-
