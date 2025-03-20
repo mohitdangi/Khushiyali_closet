@@ -8,33 +8,34 @@ const ProductCard = ({ product, onAddToCart, onBuyNow }) => {
     <Card
       sx={{
         borderRadius: '12px',
-        boxShadow: '0 4px 15px rgba(0, 0, 0, 0.1)',
+        boxShadow: '0 4px 10px rgba(0, 0, 0, 0.1)',
         display: 'flex',
         flexDirection: 'column',
-        height: '100%',
+        height: { xs: '320px', md: '350px' }, // Compact height
+        width: '100%', 
         transition: 'transform 0.3s ease-in-out',
-        '&:hover': { transform: 'scale(1.03)' } // Subtle hover effect
+        '&:hover': { transform: 'scale(1.02)' } // Subtle hover effect
       }}
     >
       {/* Product Image */}
       <CardMedia
-    component="img"
-    height="450"  // Increased height for a portrait-style look
-    image={product.img}
-    alt={product.name}
-    sx={{
-        objectFit: 'cover',
-        borderTopLeftRadius: '12px',
-        borderTopRightRadius: '12px',
-        maxWidth: '250px',   // Reduced width for a vertical image effect
-        margin: '0 auto'     // Centers the image horizontally
-    }}
-/>
-
+        component="img"
+        height="200"  // Reduced height for better balance
+        image={product.img}
+        alt={product.name}
+        sx={{
+          objectFit: 'cover',
+          borderTopLeftRadius: '12px',
+          borderTopRightRadius: '12px'
+        }}
+      />
 
       {/* Product Details */}
-      <CardContent sx={{ flexGrow: 1, p: 2 }}>
-        <Typography variant="h6" sx={{ fontWeight: 'bold', color: 'text.primary' }}>
+      <CardContent sx={{ flexGrow: 1, p: 1, textAlign: 'center' }}>
+        <Typography 
+          variant="subtitle1" 
+          sx={{ fontWeight: 'bold', color: 'text.primary', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}
+        >
           {product.name}
         </Typography>
         <Typography variant="body2" sx={{ color: 'text.secondary' }}>
@@ -43,30 +44,26 @@ const ProductCard = ({ product, onAddToCart, onBuyNow }) => {
       </CardContent>
 
       {/* Action Buttons */}
-      <Box sx={{ p: 2 }}>
+      <Box sx={{ p: 1 }}>
         <Stack direction="row" spacing={1}>
           <Button
             variant="contained"
             color="primary"
             startIcon={<ShoppingCartIcon />}
-            sx={{
-              width: '100%'
-            }}
+            sx={{ width: '50%', fontSize: '0.8rem', p: 0.5 }}
             onClick={() => onAddToCart(product.id)}
           >
-            Add to Cart
+            Add
           </Button>
 
           <Button
             variant="contained"
             color="secondary"
             startIcon={<BoltIcon />}
-            sx={{
-              width: '100%'
-            }}
+            sx={{ width: '50%', fontSize: '0.8rem', p: 0.5 }}
             onClick={() => onBuyNow(product.id)}
           >
-            Buy Now
+            Buy
           </Button>
         </Stack>
       </Box>
